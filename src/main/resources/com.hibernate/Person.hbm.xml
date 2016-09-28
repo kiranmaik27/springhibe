@@ -13,6 +13,16 @@
 
         <property name="first" column="FIRST_NAME" type="string"/>
 
+        <list name="addressList" cascade="all-delete-orphan" inverse="true">
+            <key column="PERSON_ID"/>
+            <index column="ADDRESS_INDEX" type="integer"/>
+            <one-to-many class="com.hibernate.Address"/>
+        </list>
+
+        <set name="phoneNumberSet" lazy="true" inverse="true" cascade="all-delete-orphan">
+            <key  column="PERSON_ID"/>
+            <one-to-many class="com.hibernate.PhoneNumber"/>
+        </set>
 
     </class>
 </hibernate-mapping>
