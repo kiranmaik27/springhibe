@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//-Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.hibernate.mapping">
+   <class name="Vehicle" table="VEHICLE">
+       <id name="id" column="VEHICLE_ID">
+           <generator class="org.hibernate.id.enhanced.SequenceStyleGenerator">
+               <param name="sequence_name">V_SEQ</param>
+           </generator>
+       </id>
+
+       <property name="vin" column="VIN" type="string"/>
+
+       <joined-subclass name="Honda" table="HONDA">
+           <key column="VEHICLE_ID"></key>
+           <property name="model" column="MODEL"/>
+           <property name="year" column="YEAR"/>
+       </joined-subclass>
+
+       <joined-subclass name="Toyota" table="TOYOTA">
+       <key column="VEHICLE_ID"></key>
+           <property name="model" column="MODEL"/>
+           <property name="year" column="YEAR"/>
+       </joined-subclass>
+   </class>
+
+    <query name="query.getToyotaByModelAndYear">
+        from Toyota t
+        where
+        t.model=:model
+        and
+        t.year=:year
+    </query>
+
+    <sql-query name="query.sql.toyota">
+        select t.*, v.vin as vin
+        from
+        toyota t
+        left join vehicle v on t.vehicle_id = v.vehicle_id
+        where model =:model and year =:year
+    </sql-query>
+
+</hibernate-mapping>

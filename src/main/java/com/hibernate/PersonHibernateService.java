@@ -1,5 +1,6 @@
 package com.hibernate;
 
+import com.hibernate.mapping.Vehicle;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.Hibernate;
@@ -23,7 +24,7 @@ public class PersonHibernateService{
 
     public void createPerson(Person p) {
         Session session = sessionFactory.getCurrentSession();
-        session.save(p);
+        session.saveOrUpdate(p);
         /*logger.info("Done saving person...");
 
         if (logger.isDebugEnabled()) {
@@ -47,5 +48,9 @@ public class PersonHibernateService{
 
         return p;
 
+    }
+
+    public void create(Vehicle vehicle){
+        sessionFactory.getCurrentSession().saveOrUpdate(vehicle);
     }
 }

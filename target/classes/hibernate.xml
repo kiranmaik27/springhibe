@@ -34,6 +34,11 @@
         <property name="mappingLocations">
             <list>
                 <value>com.hibernate/Person.hbm.xml</value>
+                <value>com.hibernate/Address.hbm.xml</value>
+                <value>com.hibernate/PhoneNumber.xml</value>
+                <!-- Mapping -->
+                <!--<value>com.hibernate/mapping/Vehicle.hbm.xml</value>-->
+                <value>com.hibernate/mapping/AllVehicle.hbm.xml</value>
             </list>
         </property>
 
@@ -43,6 +48,7 @@
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.format_sql">true</prop>
                 <prop key="hibernate.cache.use_second_level_cache">false</prop>
+                <!--<prop key="hibernate.hbm2ddl.auto">create</prop>-->
             </props>
         </property>
 
