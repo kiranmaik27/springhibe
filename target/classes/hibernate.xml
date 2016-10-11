@@ -31,13 +31,13 @@
 
         <property name="dataSource" ref="dataSource"/>
 
-        <property name="mappingLocations">
+        <property name="mappingResources">
             <list>
                 <value>com.hibernate/Person.hbm.xml</value>
                 <value>com.hibernate/Address.hbm.xml</value>
                 <value>com.hibernate/PhoneNumber.xml</value>
                 <!-- Mapping -->
-                <!--<value>com.hibernate/mapping/Vehicle.hbm.xml</value>-->
+                <value>com.hibernate/mapping/Vehicle.hbm.xml</value>
                 <value>com.hibernate/mapping/AllVehicle.hbm.xml</value>
             </list>
         </property>

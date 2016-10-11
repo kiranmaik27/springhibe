@@ -28,6 +28,7 @@ public class PersonHibernateService{
     private SessionFactory sessionFactory;
 
     public void createPerson(Person p) {
+        //p.setId(1L);
         Session session = sessionFactory.getCurrentSession();
         session.saveOrUpdate(p);
         /*logger.info("Done saving person...");
